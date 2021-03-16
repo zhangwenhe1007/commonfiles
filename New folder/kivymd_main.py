@@ -154,3 +154,5 @@ class Alerte_Anti_Arnaqueurs(MDApp):
         self.dialog.dismiss()
 
 Alerte_Anti_Arnaqueurs().run()
+
+#wenhe this is a test
