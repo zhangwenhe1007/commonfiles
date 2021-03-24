@@ -56,16 +56,28 @@ class Alerte_Anti_Arnaqueurs(MDApp):
 #functions that activate on button release/ on button press
 
     def get_data_num(self, obj):
-
         if self.num.text == "":
             self.response = "Please enter a number"
         else:
             self.send(obj=(self.num.text + '1'))
 
-        close1_btn = MDFlatButton(text='Close', on_release=self.close_dialog)
-        self.dialog = MDDialog(title='Verification', text=self.response, size_hint=(0.7, 1), buttons=[close1_btn])
+        print(self.response, self.response[-4:])
+
+        if self.response[-4:]=="#123":
+            self.response = self.response[:-4]
+            close1_btn = MDFlatButton(text='Close', on_release=self.close_dialog)
+            add_btn = MDRaisedButton(text='Mark as spam', on_release=self.add)
+            self.dialog = MDDialog(title='Verification', text=self.response + '\n' + 'Do you want to mark this number as spam?',
+                                   size_hint=(0.7, 1), buttons=[close1_btn, add_btn])
+        else:
+            close1_btn = MDFlatButton(text='Close', on_release=self.close_dialog)
+            self.dialog = MDDialog(title='Verification', text=self.response, size_hint=(0.7, 1), buttons=[close1_btn])
 
         self.dialog.open()
+
+    def add(self, obj):
+        self.send(obj=(self.num.text + 'A'))
+        self.dialog.dismiss()
 
     def get_data_sms(self, obj):
         if self.sms.text == "":
