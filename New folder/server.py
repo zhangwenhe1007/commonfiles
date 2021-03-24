@@ -6,8 +6,8 @@ import socket
 import threading
 from call_location import call_location
 from sms_testing_old import message_rating
-from spam_update import spam_update 
-from spam_update import add_message
+from spam_update import spam_update, add_message
+from add_number import add_num
 
 HEADER = 1024
 PORT = 9001
@@ -73,6 +73,10 @@ def handle_client(conn, addr):
                 outputs = message_rating(sms)
                 response = outputs[0]
                 print('The message is: '+sms)
+            
+            if msg[-1] == 'A':
+                print('Received the spam number')
+                add_num(msg[1:-1])
 
             if msg == DISCONNECT_MESSAGE:
                 connected = False
