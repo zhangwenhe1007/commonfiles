@@ -5,7 +5,7 @@ def message_rating(message):
     from sklearn.feature_extraction.text import CountVectorizer
     from sklearn.naive_bayes import MultinomialNB
 
-    df = pd.read_csv('spam.csv')
+    df = pd.read_csv(r'C:\Users\pc\Documents\CODES_EXPOSCIENCES\CODE KIVY_APP\New folder\spam.csv')
 
     messages = pd.DataFrame(df, columns=['rating', 'message'])
 

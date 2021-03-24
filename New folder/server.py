@@ -6,11 +6,12 @@ import socket
 import threading
 from call_location import call_location
 from sms_testing_old import message_rating
-from spam_update import spam_update, add_message
+from spam_update import spam_update 
+from spam_update import add_message
 
 HEADER = 1024
 PORT = 9001
-SERVER = '0.0.0.0'
+SERVER = socket.gethostbyname(socket.gethostname()) #0.0.0.0
 ADDR = (SERVER, PORT)
 FORMAT = 'utf-8'
 DISCONNECT_MESSAGE = "DISCONNECT"

@@ -16,7 +16,9 @@ HEADER = 1024
 PORT = 9001
 FORMAT = 'utf-8'
 DISCONNECT_MESSAGE = "DISCONNECT"
-SERVER = "192.168.1.19"
+
+#we can check it using ipconfig/all
+SERVER = '192.168.56.1'
 ADDR = (SERVER, PORT)
 
 class Alerte_Anti_Arnaqueurs(MDApp):
